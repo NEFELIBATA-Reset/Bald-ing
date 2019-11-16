@@ -1,0 +1,32 @@
+/*
+链接：https://www.nowcoder.com/questionTerminal/e8bb8e68434e42acbcdff0341f2a32c5
+来源：牛客网
+
+有一个XxY的网格，一个机器人只能走格点且只能向右或向下走，要从左上角走到右下角。请设计一个算法，计算机器人有多少种走法。
+
+给定两个正整数int x,int y，请返回机器人的走法数目。保证x＋y小于等于12。
+
+测试样例：
+2,2
+返回：2
+*/
+//因为只能走向右或向下，所以每走一步只有x-1或y-1两种结果
+import java.util.*;
+
+public class Robot {
+    public int countWays(int x, int y) {
+        // write code here
+        if(x+y<=12){
+            if(x==0||y==0){
+            return 0;
+            }
+            if(x==1||y==1){
+                return 1;
+            }else{
+                return countWays(x-1,y)+countWays(x,y-1);
+            }
+        }
+        return -1;
+
+    }
+}
