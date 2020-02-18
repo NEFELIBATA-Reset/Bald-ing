@@ -1,0 +1,30 @@
+/*
+数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。
+由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+
+思路：
+1、如果数组长度为1，则输出这个数
+2、将数组排序，遍历数组，分别于排序后的数组中间的数作比较，如果相等，count++，之后判断count是否大于数组长度一半
+（排序后的数组中间的数有可能是要求的数）
+*/
+import java.util.*;
+public class Solution {
+    public int MoreThanHalfNum_Solution(int [] array) {
+        int count=0;
+        if(array.length==1){
+            return array[0];
+        }
+        Arrays.sort(array);
+        for(int i=0;i<array.length;i++){
+                if(array[i]==array[array.length/2]){
+                    count++;
+                }
+        }
+        if(count>array.length/2){
+            return array[array.length/2];
+        }else{
+            return 0;
+        }
+        
+    }
+}
