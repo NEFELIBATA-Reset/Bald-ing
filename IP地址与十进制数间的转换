@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            String ip=sc.nextLine();
+            long ten=sc.nextLong();
+            System.out.println(ipToTen(ip));
+            System.out.println(tenToIp(ten));
+        }
+
+    }
+    public static String tenToIp(long ten){
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<4;i++){
+            sb.insert(0,Long.toString(ten&0xff));
+            if(i<3){
+                sb.insert(0,'.');
+            }
+            ten=ten>>8;
+        }
+        return sb.toString();
+    }
+    public static long ipToTen(String ip){
+        String[] i=ip.split("\\.");
+        long n=Long.parseLong(i[0]);
+        for(int j=1;j<i.length;j++){
+            n=n<<8;
+            n+=Long.parseLong(i[j]);
+        }
+        return n;
+
+    }
+}
