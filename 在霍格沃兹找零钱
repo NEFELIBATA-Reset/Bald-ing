@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main{
+   public static void main(String[] args){
+            Scanner sc=new Scanner(System.in);
+            String str1=sc.next();
+            String str2=sc.next();
+            String[] s1=str1.split("\\.");
+            String[] s2=str2.split("\\.");
+            StringBuilder sb=new StringBuilder();
+            int sum2=Integer.valueOf(s2[0])*17*29+Integer.valueOf(s2[1])*29+Integer.valueOf(s2[2]);
+            int sum1=Integer.valueOf(s1[0])*17*29+Integer.valueOf(s1[1])*29+Integer.valueOf(s1[2]);
+            int res=sum2-sum1;
+            int flag=1;
+       if(res<0){
+                res=-res;
+           flag=-flag;
+            }
+            int G=res/(29*17);
+            int S=(res-G*17*29)/29;
+            int K=res-G*17*29-S*29;
+       G=G*flag;
+            sb.append(G);
+            sb.append('.');
+            sb.append(S);
+            sb.append('.');
+            sb.append(K);
+            System.out.println(sb.toString());
+        }
+}
