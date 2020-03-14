@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main{
+   public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        LinkedHashMap<Character,Integer> map=new LinkedHashMap<>();
+        for(int i='A';i<='Z';i++ ){
+            map.put((char)i,0);
+        }
+        while(sc.hasNext()){
+            String s=sc.nextLine();
+            for(int i=0;i<s.length();i++){
+                if(map.containsKey(s.charAt(i))){
+                    map.put(s.charAt(i),map.get(s.charAt(i))+1);
+                }
+            }
+            for(int i='A';i<='Z';i++ ){
+                System.out.println((char)i+":"+map.get((char)i));
+            }
+
+
+        }
+    }
+}
