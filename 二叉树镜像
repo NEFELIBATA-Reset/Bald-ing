@@ -30,6 +30,7 @@ public class TreeNode {
 }
 */
 public class Solution {
+//递归让每个节点的左右节点都交换
     public void Mirror(TreeNode root) {
         if(root==null){
             return ;
