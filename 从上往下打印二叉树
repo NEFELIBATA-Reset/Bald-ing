@@ -10,6 +10,7 @@ public class TreeNode {
     }
 }
 */
+//用的是队列，先进先出，先将根节点放入，再出，再将左右节点放入
 public class Solution {
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         ArrayList<Integer> list=new ArrayList<>();
