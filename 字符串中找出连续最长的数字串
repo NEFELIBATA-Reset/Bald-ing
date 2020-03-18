@@ -22,9 +22,10 @@ public class Main {
     while(scanner.hasNext()){
        String str = scanner.nextLine();
       int max = 0,count=0,end=0;
-      for(int i=0;i<str.length();i++){
-        if(str.charAt(i)>='0' && str.charAt(i)<='9'){
-          count++;
+      for(int i=0;i<str.length();i++){//遍历数组
+        if(str.charAt(i)>='0' && str.charAt(i)<='9'){//找到1-9中间的数（包括）
+          count++;//记录数字串长度
+          //一直找到最长的那个字符串
           if(max<count){
             max= count;
             end = i;
@@ -33,7 +34,7 @@ public class Main {
             count = 0;
         }
       }
-      System.out.println(str.substring(end-max+1,end+1));
+      System.out.println(str.substring(end-max+1,end+1));//用subString切割
     }
   }
  }
