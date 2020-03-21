@@ -1,0 +1,80 @@
+/*
+输入描述:
+输入三行，分别是年，月，日
+
+输出描述:
+成功:返回outDay输出计算后的第几天;
+                                           失败:返回-1
+
+示例1
+输入
+复制
+2012
+12
+31
+输出
+复制
+366
+*/
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int n=sc.nextInt();
+            int y=sc.nextInt();
+            int r=sc.nextInt();
+            int sum=0;
+            for(int i=1;i<y;i++){
+                sum+=judgeDay(n,i);
+            }
+            sum+=r;
+            System.out.println(sum);
+        }
+    }
+    public static boolean judgeYear(int n){
+        if(n%4==0&&n%100!=0||n%400==0){
+            return true;
+        }
+        return false;
+    }
+    public static int judgeDay(int n,int y){
+        int d=0;
+        switch (y){
+            case 1: d=31;
+                break;
+            case 2:
+                if(judgeYear(n)){
+                    d=29;
+                }else {
+                    d = 28;
+                }
+                break;
+
+            case 3: d=31;
+                break;
+            case 4: d=30;
+                break;
+            case 5: d=31;
+                break;
+            case 6: d=30;
+                break;
+            case 7: d=31;
+                break;
+            case 8: d=31;
+                break;
+            case 9: d=30;
+                break;
+            case 10: d=31;
+                break;
+            case 11: d=30;
+                break;
+            case 12: d=31;
+                break;
+            default:
+                d=-1;
+                break;
+        }
+        return d;
+    }
+}
