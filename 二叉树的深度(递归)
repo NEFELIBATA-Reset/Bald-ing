@@ -13,6 +13,9 @@ public class Solution {
         if(root==null){
             return 0;
         }
+         //将左子树和右子树各自的深度算出来，选择数字较大的一方，加上根节点就是整个二叉树的深度
+         //递归完成
+
         int leftdepth=TreeDepth(root.left);
         int rightdepth=TreeDepth(root.right);
         return 1+Math.max(leftdepth,rightdepth);
