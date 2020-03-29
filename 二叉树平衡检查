@@ -20,8 +20,9 @@ public class Balance {
       if(root==null){
             return true;
         }
-        
+        //Math.abs(int )返回int的绝对值
         if(Math.abs(deep(root.left)-deep(root.right))<=1){
+        //左右子树都平衡
             return isBalance(root.left)&&isBalance(root.right);
         }else{
             return false;
@@ -29,6 +30,7 @@ public class Balance {
  
          
     }
+//求二叉树的深度
     public static int deep(TreeNode root){
         if(root!=null){
             int left=deep(root.left);
