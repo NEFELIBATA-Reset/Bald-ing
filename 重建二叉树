@@ -12,26 +12,35 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+/*
+前序：中左右
+中序：左中右
+所以1为根节点，2，4，7为左子树，3，5，6，8为右子树
+左右子树递归
+
+*/
+
 import java.util.Arrays;
 public class Solution {
     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
             if(pre.length==0){
             return null;
         }
-        int rootvalue=pre[0];
+        int rootvalue=pre[0];//记录根节点
         int leftcount=0;
+        //找到中序遍历中根节点的位置
         for(leftcount=0;leftcount<in.length;leftcount++){
             if(in[leftcount]==rootvalue){
                 break;
             }
         }
         TreeNode root=new TreeNode(rootvalue);
-        int[] preleft= Arrays.copyOfRange(pre,1,leftcount+1);
-        int[] inleft=Arrays.copyOfRange(in,0,leftcount);
-       root.left=reConstructBinaryTree(preleft,inleft);
-        int[] preright= Arrays.copyOfRange(pre,leftcount+1,pre.length);
-        int[] inright=Arrays.copyOfRange(in,leftcount+1,in.length);
-        root.right=reConstructBinaryTree(preright,inright);
+        int[] preleft= Arrays.copyOfRange(pre,1,leftcount+1);//左子树的前序
+        int[] inleft=Arrays.copyOfRange(in,0,leftcount);//左子树的中序
+       root.left=reConstructBinaryTree(preleft,inleft);//递归
+        int[] preright= Arrays.copyOfRange(pre,leftcount+1,pre.length);//右子树的前序
+        int[] inright=Arrays.copyOfRange(in,leftcount+1,in.length);//右子树的中序
+        root.right=reConstructBinaryTree(preright,inright);//递归
         return root;
     }
 }
