@@ -14,15 +14,19 @@ public class ListNode {
         this.val = val;
     }
 }*/
+//基本思路：遍历链表，将大于等于基数的和小于基数的分开，在连接
 public class Partition {
     public ListNode partition(ListNode pHead, int x) {
         // write code here
-        ListNode small=null;
-        ListNode smalllast=null;
-        ListNode big=null;
-        ListNode biglast=null;
+       
+        ListNode small=null;//定义小于基数的头指针
+        ListNode smalllast=null;//小于基数的链表的末指针
+        ListNode big=null;//定义大于等于基数的头指针
+        ListNode biglast=null;//大于等于基数的末指针
         ListNode cur=pHead;
+        //遍历链表
         while(cur!=null){
+        //小于基数的存储
             if(cur.val<x){
                 if(small==null){
                     small=cur;
@@ -30,7 +34,9 @@ public class Partition {
                     smalllast.next=cur;
                 }
                 smalllast=cur;
+                
             }else{
+            //大于等于基数的存储
                 if(big==null){
                     big=cur;
                 }else{
@@ -40,10 +46,13 @@ public class Partition {
             }
             cur=cur.next;
         }
+        //如果小于基数的链表为空，返回另外一个
         if(small==null){
             return big;
         }else{
+        //如果不为空，让小于基数的链表的末尾指针指向大于等于基数的链表
             smalllast.next=big;
+            //如果大于等于基数的链表的末尾指针为空，让他的next等于null
             if(biglast!=null){
                 biglast.next=null;
             }
