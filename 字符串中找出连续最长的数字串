@@ -14,6 +14,7 @@ abcd12345ed125ss123456789
 
 
 输出
+123456789
 */
 import java.util.Scanner;
 public class Main {
@@ -27,14 +28,14 @@ public class Main {
           count++;//记录数字串长度
           //一直找到最长的那个字符串
           if(max<count){
-            max= count;
-            end = i;
+            max= count;//记录最长的长度
+            end = i;//记录最长是i的位置
           }
         }else{
-            count = 0;
+            count = 0;//如果不是数字，count为0，重新循环
         }
       }
-      System.out.println(str.substring(end-max+1,end+1));//用subString切割
-    }
+      System.out.println(str.substring(end-max+1,end+1));//用subString切割前闭后开   
+      }
   }
  }
