@@ -13,7 +13,7 @@ import java.util.*;
 public class Count2 {
     public int countNumberOf2s(int n) {
         // write code here
-        int count=0;
+        int count=0;//最终2的个数
         int flag=1;
         int high=0;
         int low=0;
