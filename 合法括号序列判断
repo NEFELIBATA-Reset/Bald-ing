@@ -1,6 +1,5 @@
 /*
 对于一个字符串，请设计一个算法，判断其是否为一个合法的括号串。
-
 给定一个字符串A和它的长度n，请返回一个bool值代表它是否为一个合法的括号串。
 
 测试样例：
@@ -14,32 +13,31 @@
 测试样例：
 "()(()()",7
 返回：false
-
-
 */
 import java.util.Stack;
 public class Parenthesis {
  public boolean chkParenthesis(String A, int n) {
   Stack<Character> lefts = new Stack<Character>();
+  //如果字符串为空或者字符串的长度和给的长度不一致时，返回false
   if(A == null || A.length() != n){
     return false;
   }
-  for(int i = 0; i < n; i++){
-    if(A.charAt(i) == '('){
-      lefts.push(A.charAt(i));
-    }else if(A.charAt(i) == ')'){
-       if(lefts.empty()){
+  for(int i = 0; i < n; i++){//遍历字符串
+    if(A.charAt(i) == '('){//如果字符为左括号
+      lefts.push(A.charAt(i));//就放进栈里
+    }else if(A.charAt(i) == ')'){//如果为右括号
+       if(lefts.empty()){//如果此时栈为空，则返回false
           return false;
        }else{
-          lefts.pop();
+          lefts.pop();//否则就出栈
       }
-    }else{
+    }else{//如果既不是左括号，也不是右括号，就返回false
       return false;
     }
  }
- if(!lefts.empty()){
-  return false;
- }else{
+ if(!lefts.empty()){//如果栈不为空
+  return false;//返回false
+ }else{//如果栈为空，说明括号都匹配完了，返回true
   return true;
  }
  }
