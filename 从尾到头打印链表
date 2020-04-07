@@ -3,7 +3,6 @@
 *    public class ListNode {
 *        int val;
 *        ListNode next = null;
-*
 *        ListNode(int val) {
 *            this.val = val;
 *        }
@@ -14,14 +13,15 @@ import java.util.ArrayList;
 import java.util.Stack;
 public class Solution {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        Stack<Integer> stack=new Stack<>();
-        while(listNode!=null){
-            stack.push(listNode.val);
+        Stack<Integer> stack=new Stack<>();//定义栈
+        //遍历链表
+        while(listNode!=null){//当结点不为空时
+            stack.push(listNode.val);//将结点值放进栈里
             listNode=listNode.next;
         }
-        ArrayList<Integer> list=new ArrayList<>();
-        while(!stack.empty()){
-            list.add(stack.pop());
+        ArrayList<Integer> list=new ArrayList<>();//定义list
+        while(!stack.empty()){//只要栈不为空
+            list.add(stack.pop());//就将栈顶元素放入list中
         }
         return list;
     }
