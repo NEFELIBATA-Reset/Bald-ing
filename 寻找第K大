@@ -11,14 +11,14 @@
 返回：2
 */
 import java.util.*;
-
 public class Finder {
     public int findKth(int[] a, int n, int K) {
         // write code here
         return findKth(a,0,n-1,K);
     }
     public int findKth(int[] a, int left,int right, int K) {
-        int m=quicksort(a,left,right);
+        int m=quicksort(a,left,right);//调用函数，求出要求的下标
+        //以下情况防止给出一个数组的一个片段，
         if(K==m-left+1){
             return a[m];
         }else if(K<(m-left+1)){
@@ -28,20 +28,24 @@ public class Finder {
         }
         
     }
-    public int quicksort(int[] a,int left,int right){
-     
-        int mid=a[left];
-        while(left<right){
+    //快速排序：随机选取一个数，小于的放左边，大于的放右边
+    //此次快排选择从大到小
+    public int quicksort(int[] a,int left,int right){ 
+        int mid=a[left];//以第一个数为基数
+        while(left<right){//只要左下标小于右下标，就一直循环
+        //只要左下标小于右下标并且右下标的值小于基数，右下标就减一
             while(left<right&&a[right]<=mid){
                 right--;
             }
-            a[left]=a[right];
+            a[left]=a[right];//否则就将右下标的值赋给左下标
+            //只要左下标小于右下标并且左下标的值小于基数，左下标加一
             while(left<right&&a[left]>=mid){
                 left++;
             }
+           //否则将左下标的值赋给右下标
             a[right]=a[left];
         }
-        a[left]=mid;
-        return left;
+        a[left]=mid;//将基数的值赋给左下标
+        return left;//返回坐下标，即就是要求的下标
     }
 }
