@@ -8,18 +8,17 @@
 返回：[true,true,true,false]
 */
 import java.util.*;
- 
 public class Substr {
     public boolean[] chkSubStr(String[] p, int n, String s) {
         // write code here
-             boolean[] a=new boolean[n];
-        for(int i=0;i<n;i++){
-            if(s.contains(p[i])){
-                a[i]=true;
+             boolean[] a=new boolean[n];//定义一个bool数组
+        for(int i=0;i<n;i++){//遍历字符串数组
+            if(s.contains(p[i])){//如果字符串包含数组中的字符
+                a[i]=true;//对应的bool数组中值为true
             }else{
-                a[i]=false;
+                a[i]=false;//否则为false
             }
         }
-        return a;
+        return a;//返回这个bool数组
     }
 }
