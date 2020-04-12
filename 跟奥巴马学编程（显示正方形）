@@ -1,14 +1,11 @@
 /*
 链接：https://www.nowcoder.com/questionTerminal/8af708723b0f45f9a80bc80d78d3566e
 来源：牛客网
-
 美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014年底，为庆祝“计算
-
 机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！
 
 输入描述:
 输入在一行中给出正方形边长N（3<=N<=20）和组成正方形边的某种字符C，间隔一个空格。
-
 
 输出描述:
 输出由给定字符C画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的50%
@@ -18,9 +15,9 @@
 10 a
 输出
 aaaaaaaaaa
-a a
-a a
-a a
+a        a
+a        a
+a        a
 aaaaaaaaaa
 */
 import java.util.Scanner;
@@ -30,11 +27,12 @@ public class Main{
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         String c=sc.next();
-        for(int i=0;i<Math.round((double)n/2);i++){
-            for(int j=0;j<n;j++) {
-                if(i==0||i==Math.round((double)n/2)-1){
+        //Math.round();返回参数中最接近的long ，其中long四舍五入为正无穷大。 
+        for(int i=0;i<Math.round((double)n/2);i++){//循环行数
+            for(int j=0;j<n;j++) {//循环列数
+                if(i==0||i==Math.round((double)n/2)-1){//如果行数为第一行或者最后一行，就直接打印
                     System.out.print(c);
-                }else{
+                }else{//其他的行数只要在第一列和最后一列打印就行，其他的打印空格
                     if(j==0||j==n-1){
                         System.out.print(c);
                     }else{
@@ -45,7 +43,7 @@ public class Main{
 
             }
 
-            System.out.println();
+            System.out.println();//一行完了然后换行
         }
     }
 }
