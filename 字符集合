@@ -6,10 +6,8 @@
 每组数据一行，按字符串原有的字符顺序，输出字符集合，即重复出现并靠后的字母不输出。
 示例1
 输入
-复制
 abcqweracb
 输出
-复制
 abcqwer
 */
 import java.util.HashSet;
@@ -20,13 +18,13 @@ public class Main{
         Scanner sc=new Scanner(System.in);
         while(sc.hasNext()){
             String s=sc.nextLine();
-        char[] a=s.toCharArray();
-        HashSet<Character> set=new HashSet<>();
+        char[] a=s.toCharArray();//将字符串转化为字符数组
+        HashSet<Character> set=new HashSet<>();//hashset中对象不能存储相同对象
 
         StringBuilder sb=new StringBuilder();
 
-        for(  int i=0;i<a.length;i++) {
-            if(set.add(a[i])){
+        for(  int i=0;i<a.length;i++) {//遍历数组
+            if(set.add(a[i])){//只要set可以添加，说明没有重复的字符
                 sb.append(a[i]);
             }
         }
