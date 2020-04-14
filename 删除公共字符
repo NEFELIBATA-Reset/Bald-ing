@@ -23,11 +23,11 @@ public class Main{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         while(sc.hasNext()){
-            char[] ch=sc.nextLine().toCharArray();
+            char[] ch=sc.nextLine().toCharArray();//将第一个字符串转换为字符数组
             String str=sc.nextLine();
-            for(int i=0;i<ch.length;i++){
-                if(!str.contains(String.valueOf(ch[i]))){
-                    System.out.print(ch[i]);
+            for(int i=0;i<ch.length;i++){//遍历数组
+                if(!str.contains(String.valueOf(ch[i]))){//如果第二个字符串不包含字符
+                    System.out.print(ch[i]);//就打印
                 }
             }
         }
