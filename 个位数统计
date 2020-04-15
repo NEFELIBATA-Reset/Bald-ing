@@ -6,8 +6,6 @@
 
 输入描述:
 每个输入包含1个测试用例，即一个不超过1000位的正整数N。
-
-
 输出描述:
 对N中每一种不同的个位数字，以D:M的格式在一行中输出该位数字D及其在N中出现的次数M。要求按D的升序输出。
 示例1
@@ -23,9 +21,8 @@ public class Main{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
-        int[] a=new int[10];
-        for(int i=0;i<str.length();i++){
-
+        int[] a=new int[10];//定义一个整形数组，用来存放数字及个数，下标表示数字，下表对应的数代表个数
+        for(int i=0;i<str.length();i++){//遍历字符串
             a[str.charAt(i)-'0']++;
         }
         for(int i=0;i<a.length;i++){
