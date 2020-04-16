@@ -14,23 +14,25 @@ public class Solution {
     public ListNode Merge(ListNode list1,ListNode list2) {
           ListNode cur1=list1;
         ListNode cur2=list2;
-        ListNode node=new ListNode(0);
-        ListNode last=node;
-        while(cur1!=null&&cur2!=null){
-            if(cur1.val<=cur2.val){
-                last.next=cur1;
-                cur1=cur1.next;
+        ListNode node=new ListNode(0);//定义一个有结点的链表
+        ListNode last=node;//定义一个指向新定义链表的结点的
+        while(cur1!=null&&cur2!=null){//只要两个链表不为空，就一直循环
+            if(cur1.val<=cur2.val){//如果1链表的结点值小于2链表的节点值
+                last.next=cur1;//将较小的值放入新链表中
+                cur1=cur1.next;//结点指向下一个
             }else{
                 last.next=cur2;
                 cur2=cur2.next;
             }
             last=last.next;
         }
+        //只要哪个链表不为空，直接让新链表的最后一个节点指向剩余链表的头节点
         if(cur1!=null){
             last.next=cur1;
         }else{
             last.next=cur2;
         }
+        //返新链表结点的下一个
         return node.next;
     }
 }
