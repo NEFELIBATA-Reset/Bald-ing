@@ -2,8 +2,6 @@
 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
 
 保证base和exponent不同时为0
-
-
 */
 
 import java.util.*;
@@ -16,9 +14,11 @@ public class Solution {
             return 1; 
         }
         double res=1;
+        //Math.abs(int);返回值为int绝对值。 如果参数不为负，则返回参数。 如果参数为负，则返回参数的否定。 
         for(int i=0;i<Math.abs(exponent);i++){
            res*=base;
         }
+       
         if(exponent<0){
             res=1/res;
         }
