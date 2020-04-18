@@ -31,11 +31,11 @@ public class Main{
         Scanner sc=new Scanner(System.in);
         while(sc.hasNext()){
             String s=sc.nextLine();
-            char[] a=s.toCharArray();
-            for(int i=0;i<a.length;i++){
-                if ( 64< a[i]&&a[i]<= 69){
+            char[] a=s.toCharArray();//将输入的字符串转变为字符数组
+            for(int i=0;i<a.length;i++){//遍历数组
+                if ( 64< a[i]&&a[i]<= 69){//如果字符在A-F，则直接转变为V-Z
                     a[i]+=21;
-                } else if(a[i]>69){
+                } else if(a[i]>69){//如果字符在F之后，原文就是字符-5
                     a[i]-=5;
                 }
             }
