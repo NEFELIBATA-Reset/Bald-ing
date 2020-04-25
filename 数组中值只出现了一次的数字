@@ -1,0 +1,49 @@
+/*
+题目描述
+给定一个数字arr，其中只有有两个数字出现了奇数次，其它数字都出现了偶数次，按照从小到大顺序输出这两个数。
+输入描述:
+输入包含两行，第一行一个整数n(1 \leq n \leq 10^5)(1≤n≤10 
+5
+ )，代表数组arr的长度，第二行n个整数，代表数组arr,arr[i]为32位整数。
+输出描述:
+输出出现奇数次的两个数，按照从小到大的顺序。
+示例1
+输入
+4
+1 1 2 3
+输出
+2 3
+*/
+
+import java.util.*;
+public class Main{
+     public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            int n=sc.nextInt();
+            int[] arr=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            HashMap<Integer,Integer> map=new HashMap<>();
+
+            for(int i=0;i<n;i++){
+                if(!map.containsKey(arr[i])){
+                    map.put(arr[i],1);
+                }else{
+                    map.put(arr[i],map.get(arr[i])+1);
+                }
+            }
+            int[] a=new int[2];
+            int j=0;
+            for(Map.Entry<Integer,Integer> entry:map.entrySet()){
+                if(entry.getValue()%2!=0){
+                    a[j]=entry.getKey();
+                    j++;
+                }
+            }
+            Arrays.sort(a);
+                System.out.println(a[0]+" "+a[1]);
+        }
+    }
+}
