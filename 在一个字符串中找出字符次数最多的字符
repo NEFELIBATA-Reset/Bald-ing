@@ -1,0 +1,52 @@
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Scanner;
+
+/*
+*在一个字符串中可能包含a-z中的多个字符，如有重复，如String data = "shfksjgljsfsfs",求出现次数最多的那个字母及次数，如有多个重复的则求出。
+思路：
+1、定义hashMap,通过键值对存储字符以及他出现的次数
+2、定义list记录出现最多次数的字符，max记录最多的次数
+如果小于max,则继续遍历
+如果相等，添加到list
+如果大于max,则清空之前的list,更新max,将新字符添加到list
+* */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNext()){
+            String str=sc.nextLine();
+            Map<Character,Integer> map=new HashMap<>();
+            for(int i=0;i<str.length();i++){
+                if(map.containsKey(str.charAt(i))){
+                    map.put(str.charAt(i),map.get(str.charAt(i))+1);
+                }else{
+                    map.put(str.charAt(i),1);
+                }
+            }
+            LinkedList<Character> list=new LinkedList<>();
+            int max=0;
+            for(Map.Entry<Character,Integer> entry : map.entrySet()){
+                if(entry.getValue()<max){
+                    continue;
+                }
+                if(entry.getValue()==max){
+                    list.add(entry.getKey());
+                }
+                if(entry.getValue()>max){
+                    list.clear();
+                    max=entry.getValue();
+                    list.add(entry.getKey());
+                }
+            }
+            for(Character c:list){
+                System.out.println("出现次数最多的字符为："+c+" 次数为："+max);
+            }
+
+        }
+    }
+
+
+}
