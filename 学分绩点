@@ -13,6 +13,7 @@ public class Main {
             grade[i]=sc.nextInt();
         }
         double sp=0;double gp=0;
+        
         for(int i=0;i<score.length;i++){
             gp+=getPoint(grade[i])*score[i];
             sp+=score[i];
@@ -21,6 +22,7 @@ public class Main {
         System.out.printf("%.2f",GPA);
 
     }
+    //通过分数来对应绩点，可以用if else  如果是稍微简单一点的，可以用switch
     public static double getPoint(int grade){
         double point=0;
         if(grade>=90&&grade<=100){
